@@ -1,0 +1,14 @@
+runtime: nodejs16
+
+instance_class: F2
+
+env_variables:
+  BUCKET_NAME: "NetflixDashboard-bucket"
+
+handlers:
+- url: /
+  static_files: dist/NetflixDashboard/index.html
+  upload: dist/NetflixDashboard/index.html
+
+- url: /
+  static_dir: dist/NetflixDashboard-app
