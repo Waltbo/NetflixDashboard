@@ -9,25 +9,29 @@ def process_data():
       jsonArray.append(row)
   return jsonArray
 
-def process_pie_data():
+
+def getTopCategory(category, amount):
   list = process_data()
-  directorList = {}
+  toplist = {}
   for media in list:
-    print('test')
-    directors = media['director'].split(',')
-    for director in directors:
 
-      directorStripped = director.strip()
-    if directorStripped != '':
-      if directorStripped not in directorList:
-        directorList[directorStripped] = 1
+    formattedList = media[category].split(',')
+    for categories in formattedList:
+      categories_stripped = categories.strip()
+    if categories_stripped != '':
+      if categories_stripped not in toplist:
+        toplist[categories_stripped] = 1
       else:
-        directorList[directorStripped] = directorList[directorStripped] + 1
+        toplist[categories_stripped] = toplist[categories_stripped] + 1
 
-  topDirectors = sorted(directorList.items(), key=lambda x: x[1], reverse=True)
-  print("test")
-  topTenDirectors = []
-  for x in range(10):
-    directorInfo = topDirectors[x]
-    topTenDirectors.append({'name': directorInfo[0], 'y': directorInfo[1]})
-  return topTenDirectors
+  top_category = sorted(toplist.items(), key=lambda x: x[1], reverse=True)
+
+  top_x_category = []
+  for x in range(amount):
+    category_info = top_category[x]
+    if category == 'director':
+      top_x_category.append({'name': category_info[0], 'y': category_info[1]})
+    if category == 'listed_in':
+      top_x_category.append([category_info[0], category_info[1]])
+  return top_x_category
+

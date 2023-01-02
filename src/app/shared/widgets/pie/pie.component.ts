@@ -19,6 +19,7 @@ export class PieComponent implements AfterViewInit{
   ngOnInit() {
     console.log(this.data)
   }
+
   data: any;
   chartOptions : any
   ngAfterViewInit():  void {
@@ -38,7 +39,7 @@ export class PieComponent implements AfterViewInit{
         type: 'pie'
     },
     title: {
-        text: 'Browser market shares in March, 2022'
+        text: 'Top 10 Most Produced Directors'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -59,7 +60,7 @@ export class PieComponent implements AfterViewInit{
         }
     },
     series: [{
-        name: 'Brands',
+        name: 'Share',
         colorByPoint: true,
         data: this.data
     }]

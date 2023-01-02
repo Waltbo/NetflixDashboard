@@ -15,4 +15,7 @@ export class DataService {
   getPieData(): Observable<any> {
    return this.http.get(`${this.baseURL}/pieData`)
 }
+  getChartData(): Observable<any> {
+   return this.http.get(`${this.baseURL}/lineData`)
+}
 }

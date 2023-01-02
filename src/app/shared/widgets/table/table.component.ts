@@ -35,11 +35,7 @@ export class TableComponent implements AfterViewInit, OnInit{
   ngOnInit() {
 
   }
-  constructor(
-    private dataService: DataService, private _liveAnnouncer: LiveAnnouncer
-  ) {
-
-  }
+  constructor(private dataService: DataService, private _liveAnnouncer: LiveAnnouncer) {}
 
 
 
