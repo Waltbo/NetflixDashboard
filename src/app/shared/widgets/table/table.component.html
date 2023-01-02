@@ -1,0 +1,91 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="table-responsive">
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+    <!-- Show Id Column -->
+    <ng-container matColumnDef="show_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Show ID </th>
+      <td mat-cell *matCellDef="let media"> {{media.show_id}} </td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+      <td mat-cell *matCellDef="let media"> {{media.type}} </td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title </th>
+      <td mat-cell *matCellDef="let media"> {{media.title}} </td>
+    </ng-container>
+
+    <!-- Director Column -->
+    <ng-container matColumnDef="director">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Director </th>
+      <td mat-cell *matCellDef="let media"> {{media.director}} </td>
+    </ng-container>
+
+    <!-- Cast Column -->
+    <ng-container matColumnDef="cast">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cast </th>
+      <td mat-cell *matCellDef="let media"> {{media.cast}} </td>
+    </ng-container>
+
+    <!-- Country Column -->
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+      <td mat-cell *matCellDef="let media"> {{media.country}} </td>
+    </ng-container>
+
+    <!-- Date Added Column -->
+    <ng-container matColumnDef="date_added">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Added </th>
+      <td mat-cell *matCellDef="let media"> {{media.date_added}} </td>
+    </ng-container>
+
+
+    <!-- Release Column -->
+    <ng-container matColumnDef="release_year">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Release Year </th>
+      <td mat-cell *matCellDef="let media"> {{media.release_year}} </td>
+    </ng-container>
+
+    <!-- Rating Column -->
+    <ng-container matColumnDef="rating">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Rating </th>
+      <td mat-cell *matCellDef="let media"> {{media.rating}} </td>
+    </ng-container>
+
+    <!-- Duration Column -->
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+      <td mat-cell *matCellDef="let media"> {{media.duration}} </td>
+    </ng-container>
+
+    <!-- Listed In Column -->
+    <ng-container matColumnDef="listed_in">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Listed In </th>
+      <td mat-cell *matCellDef="let media"> {{media.listed_in}} </td>
+    </ng-container>
+
+    <!-- Description in Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let media"> {{media.description}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
