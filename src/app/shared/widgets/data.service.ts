@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private baseURL = `http://127.0.0.1:5000`
+  private baseURL = `https://backend-net.uk.r.appspot.com/`
   constructor(private http: HttpClient) { }
 
   getAllData(): Observable<any> {
